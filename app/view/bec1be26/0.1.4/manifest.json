@@ -1,0 +1,20 @@
+{
+  "common.js": "/public/bec1be26/0.1.4/js/chunk/common.af5a0644.js",
+  "home.js": "/public/bec1be26/0.1.4/js/chunk/home.6dfc3d41.js",
+  "runtime.js": "/public/bec1be26/0.1.4/js/runtime.41e45e58.js",
+  "deps": {
+    "home.js": {
+      "js": [
+        "/public/bec1be26/0.1.4/js/runtime.41e45e58.js",
+        "/public/bec1be26/0.1.4/js/chunk/common.af5a0644.js",
+        "/public/bec1be26/0.1.4/js/chunk/home.6dfc3d41.js"
+      ],
+      "css": []
+    }
+  },
+  "info": {
+    "publicPath": "/public/bec1be26/0.1.4/",
+    "buildPath": "public",
+    "mapped": true
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "egg-render-service",
+  "version": "0.1.0",
+  "description": "Node Render Service",
+  "scripts": {
+    "debug": "egg-bin debug",
+    "clean": "easy clean",
+    "build": "easy build prod",
+    "start": "egg-scripts start",
+    "dev": "egg-bin dev",
+    "lint": "eslint .",
+    "fix": "eslint --fix .",
+    "ii": "npm install --registry https://registry.npm.taobao.org"
+  },
+  "dependencies": {
+    "egg": "^2.0.0",
+    "axios": "^0.17.1",
+    "compressing": "^1.4.0",
+    "easy-helper": "^1.0.0",
+    "egg-scripts": "^2.9.1",
+    "egg-view-react-ssr": "^2.4.1",
+    "egg-view-vue-ssr": "^3.0.2",
+    "fs-extra": "^7.0.1",
+    "lodash": "^4.17.4",
+    "mockjs": "^1.0.1-beta3",
+    "moment": "^2.17.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "vue": "^2.5.0",
+    "vue-hot-reload-api": "^2.1.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "devDependencies": {
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^4.10.0",
+    "egg-proxy": "^1.1.0"
+  },
+  "engines": {
+    "node": "^8.9.0"
+  },
+  "ci": {
+    "version": "8, 10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easy-team/egg-render-service.git"
+  },
+  "author": "hubcarl@126.com",
+  "license": "MIT"
+}
