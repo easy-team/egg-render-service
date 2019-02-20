@@ -7,6 +7,10 @@ module.exports = app => {
     cache: false
   };
 
+  exports.render = {
+    template: fs.readFileSync(path.join(app.baseDir, 'app/web/view/layout.html'), 'utf8')
+  };
+
   exports.vuessr = {
     layout: path.join(app.baseDir, 'app/web/view/layout.html'),
     renderOptions: {

@@ -1,6 +1,7 @@
 'use strict';
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 const urllib = require('urllib');
 const fse = require('fs-extra');
 const compressing = require('compressing');
@@ -16,6 +17,18 @@ module.exports = class PackageManager {
     this.retryDownloadCache = {};
     // 检查结果
     this.checkPackageCache = {};
+  }
+
+  async getDevPackage(route) {
+    const filepath = path.join(os.tmpdir(), 'render-package.json');
+    if (!fs.existsSync(filepath)) {
+      this.app.logger.error(`No configuration file ${filepath} exists, the file is built by the application build`);
+      return null;
+    }
+    const json = await fse.readJSON(filepath);
+    return json.pkgs.find(pkg => {
+      return pkg.route === route ;
+    });
   }
 
   async getPackage(route) {
@@ -80,7 +93,7 @@ module.exports = class PackageManager {
 
   async queryPackageInfo(route) {
     // 根据 name 从数据和缓存里面获取配置 或者 启动时从数据库获取所有配置，然后定时任务更新
-    return {
+    const packageList = [{
       "name": "render-vue-package",
       "tag": "bec1be26",
       "version": "0.1.4",
@@ -89,11 +102,25 @@ module.exports = class PackageManager {
       "route": "/home",
       "entry": "home.js",
       "engine": "vue",
-      "mode": "render",
+      "render": "render",
       "clientdir": "client",
       "serverdir": "server",
       "manifest": "./manifest.json",
-    };
+    }, {
+      "name": "render-react-package",
+      "tag": "e0b05256",
+      "version": "0.1.0",
+      "url": 'https://registry.npmjs.org/render-vue-package/-/render-react-package-0.1.0.tgz',
+      "online": true,
+      "route": "/react",
+      "entry": "react.js",
+      "engine": "react",
+      "render": "render",
+      "clientdir": "client",
+      "serverdir": "server",
+      "manifest": "./manifest.json",
+    }];
+    return packageList.find(item => item.route === route);
   }
 
   async download(pkgInfo) {
